@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import { LoanType, MaritalStatus, State } from "@/constants/enums";
 import { useState } from "react";
@@ -121,7 +123,6 @@ return (
 </div>
 
 
-</div>
 </div>
 </main>
 )
