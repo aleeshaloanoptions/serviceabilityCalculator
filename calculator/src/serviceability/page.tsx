@@ -35,7 +35,7 @@ const maritalStatusOptions = [
     MaritalStatus.Divorced,
     MaritalStatus.Widowed,
     MaritalStatus.Separated,
-    MaritalStatus.De Facto
+    MaritalStatus.DeFacto
   ];  
 
 const states = [
@@ -54,13 +54,76 @@ function calculateServiceability(
 )
 
 return (
-  <main>
-<div>
+  <main className="min-h-screen bg-[#5614bb] flex items-center justify-center px-4 py-12">
+<div className="w-full max-w-6xl mx-auto">
+  <div className="bg-white rounded-3xl shadow-2xl p-8">
+
+{/* Header */}
+<div className="mb-8">
 <h1> Serviceability Calculator </h1>
 <span>.</span>
 <p>Assess your borrowing power by calculating your ability to service a loan based on your income, expenses, and other financial commitments. </p>
 </div>
+
+{/* Personal Loan Details */}
+<div className="mb-8">
+        <h2 className="mb-4">Personal Loan Details</h2>
+        <div className="flex flex-col md:flex-row gap-6">
+          {/* Left column */}
+          <div className="flex-1 space-y-4">
+            {/* Requested Amount */}
+            {/* Requested Duration */}
+            {/* Interest Rate */}
+          </div>
+          {/* Right column */}
+          <div className="flex-1 space-y-4">
+            {/* Requested Product */}
+            {/* Broker Fee */}
+            {/* Establishment Fee */}
+          </div>
+        </div>
+      </div>
+
+{/* Applicant Details */}
+<div className="mb-8">
+  <h2 className="mb-4">Applicant Details</h2>
+  <div className="flex flex-col md:flex-row gap-6">
+          {/* Left column */}
+          <div className="flex-1 space-y-4">
+            {/* Marital Status */}
+            {/* State */}
+          </div>
+          {/* Right column */}
+          <div className="flex-1 space-y-4">
+            {/* Number of Dependants */}
+            {/* Residential Status */}
+          </div>
+        </div>
+      </div>
+
+{/* Monthly Income Details */}
+<div className="mb-8">
+  <h2 className="mb-4">Monthly Income Details</h2>
+  <div className="flex flex-col md:flex-row gap-6">
+          {/* Left column */}
+          <div className="flex-1 space-y-4">
+            {/* Applicant's Income After Tax */}
+            {/* Rental Income */}
+          </div>
+          {/* Right column */}
+          <div className="flex-1 space-y-4">
+            {/* Partner's Income After Tax*/}
+            {/* Government Benefits */}
+          </div>
+        </div>
+      </div>
+
+</div>
+
+
+</div>
+</div>
+</main>
 )
 
-</main>
 }

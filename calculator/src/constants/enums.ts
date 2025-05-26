@@ -11,16 +11,16 @@ export enum MaritalStatus {
   Divorced = "Divorced",
   Widowed = "Widowed",
   Separated =  "Separated",
-  De Facto = "De Facto",  
+  DeFacto = "DeFacto",  
 }
 
 export enum State {
-  NSW = "New South Wales"
+  NSW = "New South Wales",
   VIC = "Victoria", 
   QLD = "Queensland",
   WA = "Western Australia",
   SA = "South Australia",
   TAS = "Tasmania",
   ACT = "Australian Capital Territory",
-  NT = "Northern Territory"
+  NT = "Northern Territory",
 }
