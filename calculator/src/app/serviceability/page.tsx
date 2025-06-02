@@ -1,6 +1,10 @@
 "use client";
 
 import React from 'react';
+import LoInput from "@/app/components/LoInput";
+import LoSlider from "@/app/components/LoSlider";
+import LoDropdown from "@/app/components/LoDropdown";
+import LoTable from "@/app/components/LoTable";
 import { LoanType, MaritalStatus, State } from "@/constants/enums";
 import { useState } from "react";
 
@@ -8,7 +12,9 @@ export default function Home() {
 
 const [loanAmount, setLoanAmount] = useState<number | undefined>(0);
 const [termYears, setTermYears] = useState<number | undefined>(3);
+const [brokerFee, setBrokerFee] = useState<number>(0);
 const [interestRate, setInterestRate] = useState<number | undefined>(0);
+const [establishmentFee, setEstablishmentFee] = useState<number>(0);
 const [dependants, setDependants] = useState<number | undefined>(0);
 const [applicantIncome, setApplicantIncome] = useState<number | undefined>(0);
 const [partnerIncome, setPartnerIncome] = useState<number | undefined>(0);
@@ -51,9 +57,10 @@ const states = [
   State.NT
 ]
 
-function calculateServiceability(
-
-)
+function calculateServiceability(): void {
+  // TODO: Add calculation logic later
+  console.log("Calculating serviceability...");
+}
 
 return (
   <main className="min-h-screen bg-[#5614bb] flex items-center justify-center px-4 py-12">
@@ -72,16 +79,65 @@ return (
         <h2 className="mb-4">Personal Loan Details</h2>
         <div className="flex flex-col md:flex-row gap-6">
           {/* Left column */}
+
           <div className="flex-1 space-y-4">
+
             {/* Requested Amount */}
+            <LoInput 
+            label="Requested Amount ($5K-$70K)"
+            value={loanAmount?.toString() || ""}
+            onChange={(e) => setLoanAmount(Number(e.target.value))}
+            symbol="$"
+            />
+
             {/* Requested Duration */}
+            <LoSlider
+            label="Requested Duration"
+            min={1}
+            max={7}
+            step={1}
+            defaultValue={3}
+            value={termYears}
+            onValueChange={setTermYears}
+            valueFormatter={(val) => `${val} year${val > 1 ? "s" : ""}`}
+            />
+
             {/* Interest Rate */}
+            <LoInput
+            label="Interest Rate"
+            value={interestRate?.toString() || ""}
+            onChange={(e) => setInterestRate(Number(e.target.value))}
+            symbol="$"
+            />
+
           </div>
+
           {/* Right column */}
+
           <div className="flex-1 space-y-4">
+
             {/* Requested Product */}
+            <LoDropdown
+            label="Requested Product"
+            items={loanTypeOptions}
+            />
+
             {/* Broker Fee */}
+            <LoInput
+            label="Broker Fee (up to $1,990)"
+            value={brokerFee?.toString() || ""}
+            onChange={(e) => setBrokerFee(Number(e.target.value))}
+            symbol="$"
+            />
+
             {/* Establishment Fee */}
+            <LoInput
+            label="Establishment Fee (from $0 to $695)"
+            value={establishmentFee?.toString() || ""}
+            onChange={(e) => setEstablishmentFee(Number(e.target.value))}
+            symbol="$"
+            />
+
           </div>
         </div>
       </div>
