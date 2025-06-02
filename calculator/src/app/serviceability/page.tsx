@@ -79,9 +79,9 @@ return (
 
 {/* Header */}
 <div className="mb-8">
-<h1> Serviceability Calculator </h1>
-<span>.</span>
-<p>Assess your borrowing power by calculating your ability to service a loan based on your income, expenses, and other financial commitments. </p>
+<h1 className="text-4xl sm:text-5xl font-bold leading-tight tracking-tight text-black"> Serviceability Calculator
+<span className="text-[#F33829]">.</span> </h1>
+<p className="text-sm sm:text-base text-[#A8A8B4] mt-2">Assess your borrowing power by calculating your ability to service a loan based on your income, expenses, and other financial commitments. </p>
 </div>
 
 {/* Personal Loan Details */}
