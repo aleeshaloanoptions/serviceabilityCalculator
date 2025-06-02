@@ -24,3 +24,12 @@ export enum State {
   ACT = "Australian Capital Territory",
   NT = "Northern Territory",
 }
+
+export enum ResidentialStatus {
+  Citizen = "Australian Citizen",
+  PermanentResident = "Permanent Resident", 
+  TemporaryResident = "Temporary Resident",
+  WorkVisa = "Work Visa Holder",
+  StudentVisa = "Student Visa",
+  Other = "Other",
+}

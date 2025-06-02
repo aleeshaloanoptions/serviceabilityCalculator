@@ -5,7 +5,7 @@ import LoInput from "@/app/components/LoInput";
 import LoSlider from "@/app/components/LoSlider";
 import LoDropdown from "@/app/components/LoDropdown";
 import LoTable from "@/app/components/LoTable";
-import { LoanType, MaritalStatus, State } from "@/constants/enums";
+import { LoanType, MaritalStatus, ResidentialStatus, State } from "@/constants/enums";
 import { useState } from "react";
 
 export default function Home() {
@@ -15,7 +15,8 @@ const [termYears, setTermYears] = useState<number | undefined>(3);
 const [brokerFee, setBrokerFee] = useState<number>(0);
 const [interestRate, setInterestRate] = useState<number | undefined>(0);
 const [establishmentFee, setEstablishmentFee] = useState<number>(0);
-const [dependants, setDependants] = useState<number | undefined>(0);
+const [dependents, setDependents] = useState<number | undefined>(0);
+const dependentOptions = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10+"];
 const [applicantIncome, setApplicantIncome] = useState<number | undefined>(0);
 const [partnerIncome, setPartnerIncome] = useState<number | undefined>(0);
 const [rentalIncome, setRentalIncome] = useState<number | undefined>(0);
@@ -55,6 +56,15 @@ const states = [
   State.TAS,
   State.ACT,
   State.NT
+]
+
+const residentialStatusOptions = [
+  ResidentialStatus.Citizen,
+  ResidentialStatus.PermanentResident,
+  ResidentialStatus.TemporaryResident,
+  ResidentialStatus.WorkVisa,
+  ResidentialStatus.StudentVisa,
+  ResidentialStatus.Other
 ]
 
 function calculateServiceability(): void {
@@ -149,12 +159,29 @@ return (
           {/* Left column */}
           <div className="flex-1 space-y-4">
             {/* Marital Status */}
+            <LoDropdown
+            label="Marital Status"
+            items={maritalStatusOptions}
+            />
             {/* State */}
+            <LoDropdown
+            label="State"
+            items={states}
+            />
           </div>
           {/* Right column */}
           <div className="flex-1 space-y-4">
-            {/* Number of Dependants */}
+            {/* Number of Dependents */}
+            <LoDropdown
+            label="Number of Dependents"
+            items={dependentOptions}
+            onSelect={(value) => setDependents(value === "10+" ? 10 : Number(value))}
+            />
             {/* Residential Status */}
+            <LoDropdown
+            label="Residential Status"
+            items={residentialStatusOptions}
+            />
           </div>
         </div>
       </div>
