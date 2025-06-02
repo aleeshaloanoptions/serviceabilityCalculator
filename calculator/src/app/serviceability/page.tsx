@@ -22,7 +22,7 @@ const [partnerIncome, setPartnerIncome] = useState<number | undefined>(0);
 const [rentalIncome, setRentalIncome] = useState<number | undefined>(0);
 const [governmentBenefits, setGovernmentBenefits] = useState<number | undefined>(0);
 const [livingExpenses, setLivingExpenses] = useState<number>(0);
-const [dependantExpenses, setDependentExpenses] = useState<number>(0);
+const [dependentExpenses, setDependentExpenses] = useState<number>(0);
 const [rentExpenses, setRentExpenses] = useState<number>(0);
 const [transportExpenses, setTransportExpenses] = useState<number>(0);
 const [otherExpenses, setOtherExpenses] = useState<number>(0);
@@ -227,9 +227,72 @@ return (
         </div>
       </div>
 
+<div className="mb-8">
+  <h2 className="mb-4">Monthly Expenses & Liabilities</h2>
+  
+  {/* Expenses Table */}
+  <LoTable
+    title="Expenses"
+    highlightColor="#8B5CF6"
+    items={[
+      {
+        label: "Living, Utilities, Insurance",
+        value: livingExpenses,
+        onChange: setLivingExpenses
+      },
+      {
+        label: "Dependents",
+        value: dependentExpenses,
+        onChange: setDependentExpenses
+      },
+      {
+        label: "Rent",
+        value: rentExpenses,
+        onChange: setRentExpenses
+      },
+      {
+        label: "Transport",
+        value: transportExpenses,
+        onChange: setTransportExpenses
+      },
+      {
+        label: "Other",
+        value: otherExpenses,
+        onChange: setOtherExpenses
+      }
+    ]}
+  />
+
+  {/* Liabilities Table */}
+  <LoTable
+    title="Liabilities"
+    highlightColor="#8B5CF6"
+    items={[
+      {
+        label: "Mortgage Monthly Repayment",
+        value: mortgagePayment,
+        onChange: setMortgagePayment
+      },
+      {
+        label: "Personal Loan Monthly Repayment",
+        value: personalLoanPayment,
+        onChange: setPersonalLoanPayment
+      },
+      {
+        label: "Car Loan Monthly Repayment",
+        value: carLoanPayment,
+        onChange: setCarLoanPayment
+      },
+      {
+        label: "Credit Card/Overdraft Total Limits",
+        value: creditCard,
+        onChange: setCreditCard
+      }
+    ]}
+  />
 </div>
 
-
+</div>
 </div>
 </main>
 )
