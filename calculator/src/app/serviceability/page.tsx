@@ -175,7 +175,7 @@ return (
             <LoDropdown
             label="Number of Dependents"
             items={dependentOptions}
-            onSelect={(value) => setDependents(value === "10+" ? 10 : Number(value))}
+            // onSelect={(value) => setDependents(value === "10+" ? 10 : Number(value))}
             />
             {/* Residential Status */}
             <LoDropdown
@@ -193,12 +193,36 @@ return (
           {/* Left column */}
           <div className="flex-1 space-y-4">
             {/* Applicant's Income After Tax */}
+            <LoInput
+            label="Applicant's Income After Tax"
+            value={applicantIncome?.toString() || ""}
+            onChange={(e) => setApplicantIncome(Number(e.target.value))}
+            symbol="$"
+            />
             {/* Rental Income */}
+            <LoInput
+            label="Rental Income"
+            value={rentalIncome?.toString() || ""}
+            onChange={(e) => setRentalIncome(Number(e.target.value))}
+            symbol="$"
+            />
           </div>
           {/* Right column */}
           <div className="flex-1 space-y-4">
             {/* Partner's Income After Tax*/}
+            <LoInput
+            label="Partner's Income After Tax"
+            value={partnerIncome?.toString() || ""}
+            onChange={(e) => setPartnerIncome(Number(e.target.value))}
+            symbol="$"
+            />
             {/* Government Benefits */}
+            <LoInput
+            label="Government Benefits"
+            value={governmentBenefits?.toString() || ""}
+            onChange={(e) => setGovernmentBenefits(Number(e.target.value))}
+            symbol="$"
+            />
           </div>
         </div>
       </div>
